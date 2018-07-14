@@ -1,0 +1,20 @@
+{
+  "name": "WallpaperApp",
+  "version": "1.0.0",
+  "description": "A simple random wallpaper generator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/thomasfagot/wallpaperapp",
+  "keywords": [
+    "Electron",
+    "Wallpaper",
+    "random"
+  ],
+  "author": "Thomas Fagot",
+  "license": "GPL",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
