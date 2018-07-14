@@ -1,0 +1,9 @@
+- Search bar
+- Save keywords and segments
+- Button to set random
+- Button to get list from random => completes search bar
+- Delete keywords and segments
+- Minimize in tray
+- Action when click in tray
+- Theme
+- Option to load on startup

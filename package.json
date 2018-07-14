@@ -13,8 +13,15 @@
     "random"
   ],
   "author": "Thomas Fagot",
-  "license": "GPL",
+  "license": "ISC",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "electron": "^2.0.5",
+    "electron-builder": "^20.21.0"
+  },
+  "dependencies": {
+    "images-downloader": "^1.0.3",
+    "jquery": "^3.3.1",
+    "request": "^2.87.0",
+    "wallpaper": "^3.0.0"
   }
 }
