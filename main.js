@@ -1,13 +1,12 @@
 const electron = require('electron')
 const {app, BrowserWindow} = electron
 let win
-const path = require('path')
 const userDataPath = (electron.app || electron.remote.app).getPath('userData')
-var fs = require('fs')
+let fs = require('fs')
 
 app.on('ready', () => {
   win = new BrowserWindow({resizable: false, maximizable: false})
-  //win.setMenu(null)
+  win.setMenu(null)
   win.maximize()
   win.isResizable(false)
   win.isMaximizable(false)
@@ -15,9 +14,6 @@ app.on('ready', () => {
   if (!fs.existsSync(userDataPath + '/wallpapers')) {
     fs.mkdir(userDataPath + '/wallpapers')
   }
-})
-
-app.on('close', () => {
 })
 
 app.on('quit', () => {
