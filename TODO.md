@@ -1,9 +1,11 @@
-- Search bar
-- Save keywords and segments
-- Button to set random
+- Save keywords
 - Button to get list from random => completes search bar
-- Delete keywords and segments
+- Delete keywords
 - Minimize in tray
 - Action when click in tray
-- Theme
 - Option to load on startup
+- Display previous
+- Define interval to set random
+- Button : display full size preview
+- Design
+- Hide window task bar
