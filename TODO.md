@@ -1,6 +1,6 @@
-- Save keywords
-- Button to get list from random => completes search bar
-- Delete keywords
+- Handle download / wallpaper update errors
+- Edit configuration on new window
+- Buttons: random search / random wallpaper
 - Minimize in tray
 - Action when click in tray
 - Option to load on startup
@@ -9,3 +9,5 @@
 - Button : display full size preview
 - Design
 - Hide window task bar
+- Notification with preview when changed on interval
+- Handle multiple screen ?

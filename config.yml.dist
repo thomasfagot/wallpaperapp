@@ -1,0 +1,11 @@
+interval: 120
+keywords: []
+items_per_page: 25
+# Leave blank for auto detection of screen dimensions
+min_width:
+# Leave blank for auto detection of screen dimensions
+min_height:
+# Image disposition: wide, tall, square
+orientation: wide
+# Bing adult content filter: strict, moderate, off
+adult_content_filter: moderate
