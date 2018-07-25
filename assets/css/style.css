@@ -17,3 +17,37 @@
 #keyword-container {
   font-size: 18px;
 }
+#wrapper .img-fluid {
+  width: 100%;
+}
+#wrapper .widget_details {
+  top: 0;
+  right: 0;
+  margin-right: 15px;
+  padding: 5px;
+  opacity: 0.5;
+}
+#wrapper .widget_details:hover {
+  opacity: 1;
+}
+.img-fluid {
+  border-radius: 2px;
+}
+#preview {
+  z-index: 3;
+  border-radius: 2px;
+}
+#preview .img-fluid {
+  cursor: zoom-out;
+}
+#close-preview {
+  top: 0;
+  right: 0;
+}
+#set-wallpaper-preview {
+  top: 0;
+  right: 45px;
+}
+#toTop {
+  z-index: 4;
+}

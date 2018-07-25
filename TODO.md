@@ -1,13 +1,7 @@
-- Handle download / wallpaper update errors
-- Edit configuration on new window
-- Buttons: random search / random wallpaper
-- Minimize in tray
-- Action when click in tray
-- Option to load on startup
-- Display previous
-- Define interval to set random
-- Button : display full size preview
+- Notify when beginning or end is reached when browsing previews
+- Handle search / download / update
+- Edit configuration
+- Display history
+- Set multiple as wallpaper and let the OS handle the rotation
 - Design
 - Hide window task bar
-- Notification with preview when changed on interval
-- Handle multiple screen ?
