@@ -33,15 +33,27 @@
 .img-fluid {
   border-radius: 2px;
 }
+#preview .img-fluid {
+  max-height: 100%;
+}
 #preview {
   z-index: 3;
   border-radius: 2px;
+  top: 70px;
 }
 #preview .img-fluid {
   cursor: zoom-out;
 }
 #close-preview {
   top: 0;
+  right: 0;
+}
+#preview-left {
+  top: 50%;
+  left: 0;
+}
+#preview-right {
+  top: 50%;
   right: 0;
 }
 #set-wallpaper-preview {

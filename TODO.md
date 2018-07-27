@@ -1,7 +1,11 @@
-- Notify when beginning or end is reached when browsing previews
-- Handle search / download / update
+- Fancybox integration
+- Fancybox gallery
+- Bug next from 1st image
+- Zomm when click on image
+- Handle errors on search / download / update
 - Edit configuration
 - Display history
 - Set multiple as wallpaper and let the OS handle the rotation
+- Persist after reboot
 - Design
 - Hide window task bar

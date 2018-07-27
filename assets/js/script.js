@@ -39,22 +39,25 @@ $(document).ready(() => {
   })
 
   $(document).keydown(function(e) {
-    switch (e.which) {
-      //escape
-      case 27:
-        closePreview()
-        break
-      //left arrow / q / a
-      case 37:
-      case 81:
-      case 65:
-        previewLeft()
-        break
-      //left arrow / q / a
-      case 39:
-      case 68:
-        previewRight()
-        break
+    let preview = $('#preview')
+    if (preview.is(':visible')) {
+      switch (e.which) {
+        //escape
+        case 27:
+          closePreview()
+          break
+        //left arrow / q / a
+        case 37:
+        case 81:
+        case 65:
+          previewLeft()
+          break
+        //left arrow / q / a
+        case 39:
+        case 68:
+          previewRight()
+          break
+      }
     }
   })
 
@@ -108,12 +111,12 @@ function addKeywordHtml(value) {
 }
 
 function searchKeyword(element) {
-  $('#search').val($(element).closest('.keyword-block').data('content'))
+  $('#search').val($(element).closest('.keyword-block').attr('data-content'))
   loadBing()
 }
 
 function removeKeyword(element) {
-  let keyword = $(element).closest('.keyword-block').data('content')
+  let keyword = $(element).closest('.keyword-block').attr('data-content')
   let index = window.config.keywords.indexOf(keyword)
   if (index !== -1) {
     window.config.keywords.splice(index, 1)
@@ -187,10 +190,9 @@ function setWallpaper(e) {
 
 function preview(element) {
   let preview = $('#preview')
-  preview.find('img').attr('src', $(element).data('id'))
-  $('#set-wallpaper-preview').attr('data-id', $(element).data('id'))
-  preview.css('top', (document.documentElement.scrollTop + 70) + 'px')
-  preview.attr('data-position', $(element).data('position'))
+  preview.find('img').attr('src', $(element).attr('data-id'))
+  $('#set-wallpaper-preview').attr('data-id', $(element).attr('data-id'))
+  preview.attr('data-position', $(element).attr('data-position'))
   preview.fadeIn()
 }
 
