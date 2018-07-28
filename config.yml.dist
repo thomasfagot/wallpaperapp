@@ -1,6 +1,5 @@
-interval: 120
-keywords: []
-items_per_page: 25
+keywords:
+items_per_page: 30
 # Leave blank for auto detection of screen dimensions
 min_width:
 # Leave blank for auto detection of screen dimensions
