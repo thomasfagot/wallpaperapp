@@ -186,6 +186,7 @@ function setWallpaper(e) {
       alert('Image could not be downloaded.')
       console.log("downloaded error", error)
     })
+  return false
 }
 
 function preview(element) {
@@ -193,7 +194,7 @@ function preview(element) {
   preview.find('img').attr('src', $(element).attr('data-id'))
   $('#set-wallpaper-preview').attr('data-id', $(element).attr('data-id'))
   preview.attr('data-position', $(element).attr('data-position'))
-  preview.css('height', $(window).height() - 58)
+  preview.css('height', $(window).height() - 66)
   preview.fadeIn()
 }
 
@@ -207,6 +208,7 @@ function previewLeft() {
   if (current_position && current_position > 0) {
     $('#wrapper').find('.show-preview[data-position="' + (current_position - 1) + '"]').trigger('click')
   }
+  return false
 }
 
 function previewRight() {
@@ -214,6 +216,7 @@ function previewRight() {
   if (typeof current_position !== 'undefined' && current_position < ($('.widget').length - 1)) {
     $('#wrapper').find('.show-preview[data-position="' + (current_position + 1) + '"]').trigger('click')
   }
+  return false
 }
 
 function scrollToTop() {

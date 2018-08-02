@@ -1,3 +1,4 @@
+- Show previous wallpapers
 - Loader : setting wallpaper, preview, loading images after search and pagination
 - Handle errors on search / download / update
 - Edit configuration
@@ -7,3 +8,4 @@
 - Design
 - Translations
 - Hide window task bar
+- Don't download if file exists
