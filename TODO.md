@@ -1,4 +1,4 @@
-- Delete from history
+- Bug when selecting some images: nothing happens
 - Loader : setting wallpaper, preview, loading images after search and pagination
 - Handle errors on search / download / update
 - Edit configuration
@@ -6,4 +6,4 @@
 - Persist after reboot (handle Microsoft account sync)
 - Design
 - Translations
-- Hide window task bar
+- Hide window task bar, remove console.log

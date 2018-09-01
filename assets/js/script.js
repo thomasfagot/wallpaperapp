@@ -42,7 +42,7 @@ $(document).ready(() => {
     }
   })
 
-  $('#search-form').submit((event) => {
+  $('#search-form').submit(event => {
     window.page = 1
     loadBing()
     $('html, body').animate({scrollTop: 0}, 'slow')
@@ -50,14 +50,14 @@ $(document).ready(() => {
     return false
   })
 
-  $('#load-more').click((event) => {
+  $('#load-more').click(event => {
     event.preventDefault()
     window.page += 1
     loadBing()
     return false
   })
 
-  $('#showHistory').click((event) => {
+  $('#showHistory').click(event => {
     event.preventDefault()
     showHistory()
     return false
@@ -101,6 +101,9 @@ $(document).ready(() => {
 
 function init()
 {
+  window.eval = global.eval = function () {
+    throw new Error(`Sorry, this app does not support window.eval().`)
+  }
   window.page = 1
   //load default configuration
   window.config = {
@@ -135,6 +138,7 @@ function showHistory()
   let position = 1
   window.page = 1
   $wrapper.html('')
+  $('#load-more').hide()
   fs.readdir(dest, (err, dir) => {
     for (let file of dir) {
       $wrapper.append(
@@ -181,8 +185,9 @@ function loadBing()
   let loader = $('#loader')
   let load_more = $('#load-more')
   let wrapper = $('#wrapper')
+  let search = $('#search').val()
   let endpoint = 'https://www.bing.com/images/async'
-    + '?q=' + encodeURI($('#search').val())
+    + '?q=' + encodeURI(search)
     + '&first=' + ((window.page - 1) * window.config.items_per_page)
     + '&count=' + window.config.items_per_page
     + '&qft=+filterui%3aimagesize-custom_' + window.config.min_width + '_' + window.config.min_height
@@ -190,14 +195,19 @@ function loadBing()
     + '&adlt=' + window.config.adult_content_filter
 
   closePreview()
-  loader.show()
+  if (window.page === 1) {
+    wrapper.html('')
+  }
   load_more.hide()
+  
+  if (search.length === 0) {
+    return false
+  }
+  
+  loader.show()
 
   request(endpoint, (r, s, b) => {
     loader.hide()
-    if (window.page === 1) {
-      wrapper.html('')
-    }
     let current_count = $('.widget').length
     let results = b.match(/m="{[^}]+}/g) || []
     load_more.toggle(results.length === window.config.items_per_page)
@@ -224,10 +234,15 @@ function setWallpaper(e)
   if (image.match(/^https?/)) {
     download([image], dest)
       .then(result => {
-        wallpaper.set(result[0].filename).then(() => {
-          $('.set-wallpaper i').removeClass('fa-check').addClass('fa-image')
-          $('*[data-id="' + $(e).attr('data-id') + '"]').find('i').removeClass('fa-image').addClass('fa-check')
-        })
+        wallpaper.set(result[0].filename)
+          .then(() => {
+            $('.set-wallpaper i').removeClass('fa-check').addClass('fa-image')
+            $('*[data-id="' + $(e).attr('data-id') + '"]').find('i').removeClass('fa-image').addClass('fa-check')
+          })
+          .catch(error => {
+            alert('Image could not be set as wallpaper.')
+            console.log('wallpaper error', error)
+          })
       })
       .catch(error => {
         alert('Image could not be downloaded.')
@@ -245,10 +260,15 @@ function setWallpaper(e)
 function preview(element)
 {
   let preview = $('#preview')
+  let position = parseInt($(element).attr('data-position'))
   preview.find('img').attr('src', $(element).attr('data-id'))
   $('#set-wallpaper-preview').attr('data-id', $(element).attr('data-id'))
-  preview.attr('data-position', $(element).attr('data-position'))
+  preview.attr('data-position', position)
   preview.css('height', $(window).height() - 66)
+
+  $('#preview-left').toggle(position !== 1)
+  $('#preview-right').toggle(position < $('.widget').length)
+  
   preview.fadeIn()
 }
 
@@ -271,7 +291,7 @@ function previewLeft()
 function previewRight()
 {
   let current_position = parseInt($('#preview').attr('data-position'))
-  if (typeof current_position !== 'undefined' && current_position < ($('.widget').length - 1)) {
+  if (typeof current_position !== 'undefined' && current_position < $('.widget').length) {
     $('#set-wallpaper-preview').find('i').removeClass('fa-check').addClass('fa-image')
     $('#wrapper').find('.show-preview[data-position="' + (current_position + 1) + '"]').trigger('click')
   }
@@ -306,6 +326,6 @@ function removeWallpaper(element)
       }
     })
   } else {
-    alert('This file doesn\'t exist, cannot delete');
+    alert('File not found.');
   }
 }

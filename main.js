@@ -11,6 +11,7 @@ app.on('ready', () => {
     resizable: true,
     maximizable: true
   })
+
   //win.setMenu(null)
   win.maximize()
   win.loadURL(__dirname + '/index.html')
