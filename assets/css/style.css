@@ -72,3 +72,9 @@
 #toTop {
   z-index: 4;
 }
+.localImage .removeButton {
+    display: inline-block;
+}
+.remoteImage .removeButton {
+    display: none;
+}

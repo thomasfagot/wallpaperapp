@@ -14,10 +14,11 @@
       <a class="navbar-brand mr-5" href="#"><i class="align-middle fa fa-2x fa-image mr-2"></i> WallpaperApp</a>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <form id="search-form" class="form-inline my-2 my-lg-0">
-          <input id="search" class="form-control" placeholder="Search" aria-label="Search" type="text" autofocus>
-          <button class="btn btn-success ml-2" type="submit"><i class="fa fa-search"></i></button>
-          <button id="addKeyword" class="btn btn-info ml-2" type="button"><i class="fa fa-plus"></i></button>
+          <input id="search" class="form-control" placeholder="Search" aria-label="Search" type="text" autofocus/>
+          <button class="btn btn-success ml-2" type="submit" title="Search"><i class="fa fa-search"></i></button>
+          <button id="addKeyword" class="btn btn-info ml-2" type="button" title="Add search to favorites"><i class="fa fa-plus"></i></button>
         </form>
+        <button id="showHistory" class="pull-right btn btn-primary ml-2" title="Show saved wallpapers"><i class="fa fa-history"></i></button>
       </div>
     </nav>
     <div class="container-fluid">
@@ -31,15 +32,13 @@
     <div id="preview" style="display: none;" class="position-fixed w-100">
       <div class="h-100 text-center p-2">
         <img class="img-fluid" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Could not load image" onclick="closePreview()"/>
-        <a id="close-preview" onclick="closePreview()" href="javascript:void(0)" class="btn btn-secondary position-absolute m-3"><i class="fa fa-times fa-inverse position-relative"></i></a>
-        <a id="set-wallpaper-preview" onclick="setWallpaper(this)" data-id="" href="javascript:void(0)" class="btn btn-primary set-wallpaper position-absolute m-3"><i class="fa fa-image fa-inverse position-relative"></i></a>
-        <a id="preview-left" href="javascript:void(0)" class="position-absolute mx-3 btn btn-secondary" onclick="previewLeft()"><i class="fa fa-inverse fa-2x fa-chevron-left"></i></a>
-        <a id="preview-right" href="javascript:void(0)" class="position-absolute mx-3 btn btn-secondary" onclick="previewRight()"><i class="fa fa-inverse fa-2x fa-chevron-right"></i></a>
+        <a id="close-preview" onclick="closePreview()" href="javascript:void(0)" class="btn btn-secondary position-absolute m-3" title="Close preview"><i class="fa fa-times fa-inverse position-relative"></i></a>
+        <a id="set-wallpaper-preview" onclick="setWallpaper(this)" data-id="" href="javascript:void(0)" class="btn btn-primary set-wallpaper position-absolute m-3" title="Set as wallpaper"><i class="fa fa-image fa-inverse position-relative"></i></a>
+        <a id="preview-left" href="javascript:void(0)" class="position-absolute mx-3 btn btn-secondary" onclick="previewLeft()" title="Show previous image"><i class="fa fa-inverse fa-2x fa-chevron-left"></i></a>
+        <a id="preview-right" href="javascript:void(0)" class="position-absolute mx-3 btn btn-secondary" onclick="previewRight()" title="Show next image"><i class="fa fa-inverse fa-2x fa-chevron-right"></i></a>
       </div>
     </div>
     <script type="text/javascript" src="./assets/js/jquery-3.3.1.slim.min.js"></script>
-    <script type="text/javascript" src="./assets/js/popper.min.js"></script>
-    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
   </body>
 </html>

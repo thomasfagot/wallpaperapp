@@ -1,11 +1,9 @@
-- Show previous wallpapers
+- Delete from history
 - Loader : setting wallpaper, preview, loading images after search and pagination
 - Handle errors on search / download / update
 - Edit configuration
-- Display history
 - Set multiple as wallpaper and let the OS handle the rotation
-- Persist after reboot
+- Persist after reboot (handle Microsoft account sync)
 - Design
 - Translations
 - Hide window task bar
-- Don't download if file exists
